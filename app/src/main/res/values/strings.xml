@@ -1,0 +1,30 @@
+<resources>
+
+    <string name="app_name">XPAnd</string>
+    <string name="menu_settings">Settings</string>
+    <string name="speed">Speed</string>
+    <string name="altitude">Altitude</string>
+    <string name="pitch">Pitch</string>
+
+    <color name="colorBLACK">#000</color>
+    <color name="colorGREEN">#0F0</color>
+    <color name="colorGREY">#CCC</color>
+    <color name="colorDARKGREY">#666</color>
+    <color name="colorMEDIUMGREY">#999</color>
+    <color name="colorDeepSkyBlue">#00BFFF</color>
+    <color name="colorLightSkyBlue">#87CEFA</color>
+    <color name="colorSienna">#A0522D</color>
+    <color name="colorSteelBlue">#4682B4</color>
+    <color name="colorPeru">#CD853F</color>
+
+    <string name="heading">Heading</string>
+    <string name="roll">Roll</string>
+    <string name="ip_address">IP address</string>
+    <string name="help">Help</string>
+    <string name="retract">RET.</string>
+    <string name="extend">EXT.</string>
+    <string name="flaps">FLAPS</string>
+    <string name="gear">GEAR</string>
+    <string name="brake">BRAKE</string>
+
+</resources>

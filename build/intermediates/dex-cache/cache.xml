@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Cyril\Documents\Programmation\AndroidStudioProjects\XPAND\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="C:\Users\Cyril\Documents\Programmation\AndroidStudioProjects\XPAND\app\build\intermediates\pre-dexed\debug\classes-101c0fc20f181fb6698e309027161029e88795d0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Cyril\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="C:\Users\Cyril\Documents\Programmation\AndroidStudioProjects\XPAND\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-0afb04733154b99fcd0b534c25f6961787403709.jar" />
+    </item>
+    <item
+        jar="C:\Users\Cyril\Documents\Programmation\AndroidStudioProjects\XPAND\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="C:\Users\Cyril\Documents\Programmation\AndroidStudioProjects\XPAND\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-9ef43ead7ef0643a1e0cc66cd8c88acc2eba8f85.jar" />
+    </item>
+
+</items>

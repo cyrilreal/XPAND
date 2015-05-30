@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBLACK"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <aero.xpand.View2D
+        android:id="@+id/view2D"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="64dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorDARKGREY"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btnFlapsRetract"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/grooved_shape_normal"
+            android:text="@string/retract"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tvFlaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/flaps"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+        <SeekBar
+            android:id="@+id/pbFlapsPosition"
+            android:layout_width="56dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="4dp"
+            android:progress="35"
+            android:progressDrawable="@drawable/custom_seekbar"
+            android:thumb="@drawable/seekbar_thumb" />
+
+        <Button
+            android:id="@+id/btnFlapsExtend"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/grooved_shape_normal"
+            android:text="@string/extend"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnGear"
+            android:layout_width="64dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/grooved_shape_normal"
+            android:text="@string/gear"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/btnBrake"
+            android:layout_width="64dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/grooved_shape_normal"
+            android:text="@string/brake" />
+
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/C:/Users/Cyril/Documents/Programmation/AndroidStudioProjects/XPAND/app/src/main/res/layout-land/screen_main.xml -->

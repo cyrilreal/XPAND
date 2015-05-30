@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- button's plate -->
+
+    <item>
+        <shape android:shape="rectangle" >
+            <size
+                android:height="24dp"
+                android:width="8dp" />
+
+            <corners android:radius="8dp" />
+
+            <gradient
+                android:angle="0"
+                android:centerColor="@android:color/white"
+                android:endColor="@color/colorGREY"
+                android:startColor="@color/colorGREY"
+                android:type="linear" />
+        </shape>
+    </item>
+
+</layer-list><!-- From: file:/C:/Users/Cyril/Documents/Programmation/AndroidStudioProjects/XPAND/app/src/main/res/drawable/seekbar_thumb.xml -->

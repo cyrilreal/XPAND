@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="aero.xpand.test">
+
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="22" />
+
+    <application>
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+                     android:targetPackage="aero.xpand"
+                     android:handleProfiling="false"
+                     android:functionalTest="false"
+                     android:label="Tests for aero.xpand"/>
+</manifest>
