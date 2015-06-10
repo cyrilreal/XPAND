@@ -15,7 +15,7 @@ public class UdpReceiver implements Runnable {
 
 	public static final String SERVER_IP = "127.0.0.1"; // 'Within' the
 														// emulator!
-	public static final int SERVER_PORT = 49001;
+	public static final int SERVER_PORT = 49020;
 	public static final int STATE_RUNNING = 1;
 	public static final int STATE_STOPPED = 0;
 

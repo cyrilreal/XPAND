@@ -1,6 +1,6 @@
 package aero.xpand;
 
-public class DataParser {
+public class DataParserXP {
 
 	private byte[] data;
 	public float speedIndicated;
@@ -10,7 +10,7 @@ public class DataParser {
 	public float verticalSpeed;
 	public float flapsHandle, flapsPosition;
 
-	public DataParser() {
+	public DataParserXP() {
 
 	}
 

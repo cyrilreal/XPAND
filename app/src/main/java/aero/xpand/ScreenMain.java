@@ -39,7 +39,7 @@ public class ScreenMain extends FragmentActivity implements OnClickListener {
     private Button btnFlapsExtend;
 
     private UdpReceiver udpReceiver;
-    private static DataParser dataParser;
+    private static DataParserXHSI dataParser;
 
     /**
      * Called when the activity is first created.
@@ -53,7 +53,7 @@ public class ScreenMain extends FragmentActivity implements OnClickListener {
         pbFlapsPosition = (ProgressBar) findViewById(R.id.pbFlapsPosition);
         btnFlapsExtend = (Button) findViewById(R.id.btnFlapsExtend);
         btnFlapsExtend.setOnClickListener(this);
-        dataParser = new DataParser();
+        dataParser = new DataParserXHSI();
 
         // instantiate server
         udpReceiver = new UdpReceiver(handler);
@@ -125,7 +125,7 @@ public class ScreenMain extends FragmentActivity implements OnClickListener {
         view2D.componentAdi.pitch = dataParser.pitch;
         view2D.componentAdi.roll = dataParser.roll;
         view2D.componentAdi.slip = dataParser.slip;
-        view2D.componentSpeed.mSpeed = dataParser.speedIndicated;
+        view2D.componentSpeed.mSpeed = dataParser.speedTrue;
         view2D.componentAltitude.alt = dataParser.positionAltAboveMeanSeaLevel;
         view2D.componentHeading.heading = dataParser.headingMag;
         view2D.componentVsi.mVerticalSpeed = dataParser.verticalSpeed;
