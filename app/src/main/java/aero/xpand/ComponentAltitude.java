@@ -318,6 +318,8 @@ public class ComponentAltitude {
 	}
 
 	private void updateAltScale() {
+		//TODO : deal with negative alt
+
 		// alt -= 1;
 		// round speed to the lowest hundred
 		altHundredRef = (((int) (alt / 100)) * 100);

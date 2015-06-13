@@ -15,7 +15,7 @@ public class DataParserXHSI {
     public float verticalSpeed;
     public float flapsHandle, flapsPosition;
 
-    public float devLoc, devGlide;
+    public float devLocDot, devGlideDot;
 
     private float decodedValue;
 
@@ -36,7 +36,7 @@ public class DataParserXHSI {
         // identify the packet type (identified by the first four bytes)
         String packet_type = new String(data, 0, 4).trim();
 
-        if (packet_type.equals("ADCD")) {
+        if (packet_type.equals("ADCD") || packet_type.equals(("AVIO"))) {
             DataInputStream data_stream = new DataInputStream(new ByteArrayInputStream(data));
             try {
                 data_stream.skipBytes(4);    // skip the bytes containing the packet type id
@@ -62,10 +62,6 @@ public class DataParserXHSI {
                                 roll = decodedValue;
                                 break;
 
-                            case 9:
-                                positionAltAboveMeanSeaLevel = decodedValue;
-                                break;
-
                             case 11:
                                 pitch = decodedValue;
                                 break;
@@ -85,11 +81,13 @@ public class DataParserXHSI {
                             case 56:
                                 verticalSpeed = decodedValue;
                                 break;
+
                             case 118:
-                                devLoc = decodedValue;
+                                devLocDot = decodedValue;
                                 break;
+
                             case 122:
-                                devGlide = decodedValue;
+                                devGlideDot = decodedValue;
                                 break;
 
                             default:

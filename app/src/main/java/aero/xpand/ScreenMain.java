@@ -50,9 +50,9 @@ public class ScreenMain extends FragmentActivity implements OnClickListener {
         setContentView(R.layout.screen_main);
 
         view2D = (View2D) findViewById(R.id.view2D);
-        pbFlapsPosition = (ProgressBar) findViewById(R.id.pbFlapsPosition);
-        btnFlapsExtend = (Button) findViewById(R.id.btnFlapsExtend);
-        btnFlapsExtend.setOnClickListener(this);
+//        pbFlapsPosition = (ProgressBar) findViewById(R.id.pbFlapsPosition);
+//        btnFlapsExtend = (Button) findViewById(R.id.btnFlapsExtend);
+//        btnFlapsExtend.setOnClickListener(this);
         dataParser = new DataParserXHSI();
 
         // instantiate server
@@ -125,12 +125,14 @@ public class ScreenMain extends FragmentActivity implements OnClickListener {
         view2D.componentAdi.pitch = dataParser.pitch;
         view2D.componentAdi.roll = dataParser.roll;
         view2D.componentAdi.slip = dataParser.slip;
+        view2D.componentILS.devLoc = dataParser.devLocDot;
+        view2D.componentILS.devGlide = dataParser.devGlideDot;
         view2D.componentSpeed.mSpeed = dataParser.speedTrue;
         view2D.componentAltitude.alt = dataParser.positionAltAboveMeanSeaLevel;
         view2D.componentHeading.heading = dataParser.headingMag;
         view2D.componentVsi.mVerticalSpeed = dataParser.verticalSpeed;
         // update controls
-        pbFlapsPosition.setProgress((int) (dataParser.flapsPosition * 100));
+        // pbFlapsPosition.setProgress((int) (dataParser.flapsPosition * 100));
     }
 
     @Override

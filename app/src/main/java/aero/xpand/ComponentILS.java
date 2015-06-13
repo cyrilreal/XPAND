@@ -25,9 +25,11 @@ public class ComponentILS {
     private Path reticleGlide, reticleLoc;
     private Path diamondGlide, diamondLoc;
     private PointF[] dots;
-
-    public float devLoc, devGlide;
-
+    private float maxDevRatio = 0.77f;   // deviation maximum on given width or height
+    public float devLoc, devGlide;  // deviation in degrees, between -2.5f and +2.5f
+    private float devX, devY;       // actual deviation of diamonds, expressed in % of width
+    private boolean locModeFill;    // when -1.25° < diamond < 1.25°
+    private boolean gsModeFill;     // when -1.25° < diamond < 1.25°
     private boolean init_ok = false;
 
     public ComponentILS(Context context, float x, float y, float width, float height) {
@@ -45,9 +47,7 @@ public class ComponentILS {
         paint.setAntiAlias(true);
 
         initGraphics();
-        // TESTING PURPOSE ONLY
-        devLoc = 1f;
-        devGlide = 1f;
+
     }
 
     private void initGraphics() {
@@ -63,15 +63,15 @@ public class ComponentILS {
         reticleLoc.close();
         dots = new PointF[8];
         // Loc
-        dots[0] = new PointF(mWidth * 0.20f, mHeight * 1.04f);
-        dots[1] = new PointF(mWidth * 0.35f, mHeight * 1.04f);
-        dots[2] = new PointF(mWidth * 0.65f, mHeight * 1.04f);
-        dots[3] = new PointF(mWidth * 0.80f, mHeight * 1.04f);
+        dots[0] = new PointF(centerX - mWidth * maxDevRatio * 0.4f, mHeight * 1.04f);
+        dots[1] = new PointF(centerX - mWidth * maxDevRatio * 0.2f, mHeight * 1.04f);
+        dots[2] = new PointF(centerX + mWidth * maxDevRatio * 0.2f, mHeight * 1.04f);
+        dots[3] = new PointF(centerX + mWidth * maxDevRatio * 0.4f, mHeight * 1.04f);
         // glide
-        dots[4] = new PointF(mWidth * 1.04f, mHeight * 0.20f);
-        dots[5] = new PointF(mWidth * 1.04f, mHeight * 0.35f);
-        dots[6] = new PointF(mWidth * 1.04f, mHeight * 0.65f);
-        dots[7] = new PointF(mWidth * 1.04f, mHeight * 0.80f);
+        dots[4] = new PointF(mWidth * 1.04f, centerY - mHeight * maxDevRatio * 0.4f);
+        dots[5] = new PointF(mWidth * 1.04f, centerY - mHeight * maxDevRatio * 0.2f);
+        dots[6] = new PointF(mWidth * 1.04f, centerY + mHeight * maxDevRatio * 0.2f);
+        dots[7] = new PointF(mWidth * 1.04f, centerY + mHeight * maxDevRatio * 0.4f);
 
         //diamondLoc
         diamondLoc = new Path();
@@ -93,6 +93,26 @@ public class ComponentILS {
     }
 
     public void updateComponent(Canvas canvas) {
+        // compute deviation on X and Y scales (dots)
+        locModeFill = (devLoc >= -2.4f && devLoc <= 2.4f) ? true : false;
+        if (devLoc <= -2.4999f) {
+            devX = (-mWidth / 2f) * maxDevRatio;
+        } else if (devLoc > -2.4999f && devLoc < 2.4999f) {
+            devX = (mWidth / 2f) * maxDevRatio * devLoc / 2.5f;
+        }
+        if (devLoc >= 2.4999f) {
+            devX = (mWidth / 2f) * maxDevRatio;
+        }
+
+        gsModeFill = (devGlide >= -2.4f && devGlide <= 2.4f) ? true : false;
+        if (devGlide <= -2.4999f) {
+            devY = (-mHeight / 2f) * maxDevRatio;
+        } else if (devGlide > -2.4999f && devGlide < 2.4999f) {
+            devY = (mHeight / 2f) * maxDevRatio * devGlide / 2.5f;
+        }
+        if (devGlide >= 2.4999f) {
+            devY = (mHeight / 2f) * maxDevRatio;
+        }
         draw(canvas);
     }
 
@@ -108,18 +128,22 @@ public class ComponentILS {
 
         // draw diamonds
         paint.setColor(Color.MAGENTA);
-        paint.setStyle(Style.FILL);
-        canvas.translate(centerX * 0.73f * devLoc, 0f);
+        paint.setStrokeWidth(mHeight * 0.01f);
+
+        canvas.translate(devX, 0f);
+        paint.setStyle(locModeFill ? Style.FILL : Style.STROKE);
+
         canvas.drawPath(diamondLoc, paint);
-        canvas.translate(-centerX * 0.73f * devLoc, 0f);
-        canvas.translate(0f, centerY * 0.73f * devGlide);
+        canvas.translate(-devX, 0f);
+
+        canvas.translate(0f, devY);
+        paint.setStyle(gsModeFill ? Style.FILL : Style.STROKE);
         canvas.drawPath(diamondGlide, paint);
-        canvas.translate(0f, -centerY * 0.73f * devGlide);
+        canvas.translate(0f, -devY);
 
         // draw reticles
         paint.setColor(Color.WHITE);
         paint.setStyle(Style.STROKE);
-        paint.setStrokeWidth(mHeight * 0.01f);
         canvas.drawPath(reticleGlide, paint);
         canvas.drawPath(reticleLoc, paint);
 

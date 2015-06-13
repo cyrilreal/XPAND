@@ -217,7 +217,6 @@ public class View2D extends SurfaceView implements SurfaceHolder.Callback {
 
 							// ADI / ILS MUST be in last position
 							componentAdi.updateComponent(c);
-
 						}
 						if (mMode == STATE_READY) {
 
